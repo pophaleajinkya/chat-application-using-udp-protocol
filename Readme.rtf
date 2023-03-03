@@ -1,0 +1,64 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red153\green168\blue186;\red32\green32\blue32;}
+{\*\expandedcolortbl;;\csgenericrgb\c60000\c65882\c72941;\csgenericrgb\c12549\c12549\c12549;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 #Requirements\
+\
+implementation = CPython\
+version_info = 3.10.8.final.0\
+virtualenv = 20.16.7\
+base-prefix = /usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10\
+base-exec-prefix = /usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10\
+base-executable = /usr/local/opt/python@3.10/bin/python3.10\
+\
+\
+#Libraries and Dependencies\
+\
+import socket, sys and select\
+\
+#Project Description\
+\
+A chat program is an application that enables communication between multiple chat clients. There are two typical paradigms to enable such communications: client-server and peer-to-peer communication. For the client-server paradigm, it is the responsibility of the server to relay the messages that are exchanged between clients.\
+For this project, you need to develop a UDP-based chat application, following the client-server communication paradigm. This application will use sockets for communications. Each functionality of this chat application is described below.\
+\
+#Sockets Communications\
+\
+Write a simple client-server broadcast chat application. The server listens at a specified UDP port, and waits for GREETING messages from remote clients. Once a greeting has been received the client may send a MESSAGE command to the server, which will forward the contents in an INCOMING message to every remote point that has previously sent a GREETING (including this sending client).\
+The types and format of messages to be exchanged in the application are:\
+1. GREETING: Greets the server. Client to server only. The server should register the client who sent this message as active.\
+2. MESSAGE: Sends some text to the server for further distribution. Contains the text of the message to send. Client to server only.\
+3. INCOMING: The server has received some text, and is passing it along with the sender's ip and port. Contains the IP address and port of sender as well as the text of the message. Server to client only.\
+4. Any other message(e.g.ICMP errors) must be ignored.\
+\
+#Sample Execution and Output\
+\
+At first, run the Main_Chat_Server using the terminal or on the Pycharm Application.\
+command to change the directory - cd /Users/user_name/folder/...\
+Command to run the server file - python3 Main_Chat_Server.py\
+Output - Server Initialized and is running.......\
+\
+Now, Open a second terminal to\
+Command to run the client1 file - python3 Client_chat_1.py\
+Client_chat_1 Output - 'Welcome to the chat room!'\
+                       'Type your message and press Enter to send it'\
+\
+Now, Open a third terminal to\
+\
+Command to run the client2 file - python3 Client_chat_2.py\
+Client_chat_2 Output - 'Welcome to the chat room!'\
+                       'Type your message and press Enter to send it'\
+Client_chat_2 Input  - How are you?\
+Client_chat_2 Output - How are you?\
+Client_chat_1 Output - How are you?\
+\
+#Shutdown the server\
+\
+In order to leave the chat - Enter Ctrl + C on the Client terminal to leave the chat group.\
+In order to shut down the system - Enter Ctrl +C ON THE Main Server terminal to shut down the server.\
+\
+\
+\
+}
